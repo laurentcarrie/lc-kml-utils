@@ -166,6 +166,7 @@ pub fn process_choices(choices: &[EChoice], kml_cache: &mut HashMap<String, Kml>
                         .map(|c| c[i].clone())
                         .unwrap_or_else(|| "ff0000ff".to_string());
 
+                    let fill_color = format!("1a{}", &color[2..]);
                     elements.push(Kml::Style(Style {
                         id: Some(style_id.clone()),
                         line: Some(LineStyle {
@@ -174,7 +175,8 @@ pub fn process_choices(choices: &[EChoice], kml_cache: &mut HashMap<String, Kml>
                             ..Default::default()
                         }),
                         poly: Some(PolyStyle {
-                            fill: false,
+                            color: fill_color,
+                            fill: true,
                             outline: true,
                             ..Default::default()
                         }),
@@ -271,6 +273,7 @@ pub fn process_choices(choices: &[EChoice], kml_cache: &mut HashMap<String, Kml>
                         .unwrap_or_else(|| "ff0000ff".to_string());
                     let style_id = format!("union_style_{}", uc.name);
 
+                    let fill_color = format!("1a{}", &color[2..]);
                     elements.push(Kml::Style(Style {
                         id: Some(style_id.clone()),
                         line: Some(LineStyle {
@@ -279,7 +282,8 @@ pub fn process_choices(choices: &[EChoice], kml_cache: &mut HashMap<String, Kml>
                             ..Default::default()
                         }),
                         poly: Some(PolyStyle {
-                            fill: false,
+                            color: fill_color,
+                            fill: true,
                             outline: true,
                             ..Default::default()
                         }),
