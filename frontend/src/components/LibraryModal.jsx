@@ -1,0 +1,127 @@
+import { useState, useEffect } from 'react'
+import './LibraryModal.css'
+
+const API_BASE = import.meta.env.VITE_API_BASE || '/api'
+
+function formatSize(bytes) {
+  if (bytes < 1024) return bytes + ' B'
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB'
+  return (bytes / (1024 * 1024)).toFixed(1) + ' MB'
+}
+
+function buildTree(files) {
+  const root = { folders: {}, files: [] }
+  for (const f of files) {
+    const parts = f.key.split('/')
+    let node = root
+    for (let i = 0; i < parts.length - 1; i++) {
+      const dir = parts[i]
+      if (!node.folders[dir]) node.folders[dir] = { folders: {}, files: [] }
+      node = node.folders[dir]
+    }
+    node.files.push({ key: f.key, name: parts[parts.length - 1], size: f.size })
+  }
+  return root
+}
+
+function FolderView({ node, path, onSelect, onClose }) {
+  const [expanded, setExpanded] = useState({})
+
+  const toggle = (name) => setExpanded(prev => ({ ...prev, [name]: !prev[name] }))
+
+  const folderNames = Object.keys(node.folders).sort()
+
+  return (
+    <div className="library-tree">
+      {folderNames.map(name => (
+        <div key={name} className="library-tree-folder">
+          <button className="library-folder-btn" onClick={() => toggle(name)}>
+            <span className="folder-arrow">{expanded[name] ? '▼' : '▶'}</span>
+            <span className="folder-icon">📁</span>
+            <span className="folder-name">{name}</span>
+            <span className="folder-count">
+              {countFiles(node.folders[name])}
+            </span>
+          </button>
+          {expanded[name] && (
+            <div className="library-tree-children">
+              <FolderView
+                node={node.folders[name]}
+                path={path ? path + '/' + name : name}
+                onSelect={onSelect}
+                onClose={onClose}
+              />
+            </div>
+          )}
+        </div>
+      ))}
+      {node.files.map(f => (
+        <button
+          key={f.key}
+          className="library-file-btn"
+          onClick={() => { onSelect(f.key); onClose() }}
+        >
+          <span className="file-name">{f.name}</span>
+          <span className="file-size">{formatSize(f.size)}</span>
+        </button>
+      ))}
+    </div>
+  )
+}
+
+function countFiles(node) {
+  let count = node.files.length
+  for (const sub of Object.values(node.folders)) {
+    count += countFiles(sub)
+  }
+  return count
+}
+
+export default function LibraryModal({ open, onClose, onSelect }) {
+  const [files, setFiles] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    if (open) {
+      setLoading(true)
+      setError(null)
+      fetch(API_BASE + '/list')
+        .then(r => {
+          if (!r.ok) throw new Error('Failed to fetch file list')
+          return r.json()
+        })
+        .then(data => {
+          setFiles(data)
+          setLoading(false)
+        })
+        .catch(e => {
+          setError(e.message)
+          setLoading(false)
+        })
+    }
+  }, [open])
+
+  if (!open) return null
+
+  const tree = buildTree(files)
+
+  return (
+    <div className="library-overlay" onClick={onClose}>
+      <div className="library-modal" onClick={e => e.stopPropagation()}>
+        <div className="library-header">
+          <h2>KML Library</h2>
+          <button className="library-close" onClick={onClose}>x</button>
+        </div>
+        <div className="library-body">
+          {loading && <p className="library-status">Loading...</p>}
+          {error && <p className="library-error">{error}</p>}
+          {!loading && !error && files.length === 0 && <p className="library-status">No KML files found</p>}
+          {!loading && !error && files.length > 0 && (
+            <FolderView node={tree} path="" onSelect={onSelect} onClose={onClose} />
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
