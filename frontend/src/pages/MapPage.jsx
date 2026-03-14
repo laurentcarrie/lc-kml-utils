@@ -23,7 +23,7 @@ export default function MapPage() {
   const [libraryOpen, setLibraryOpen] = useState(false)
   const mapRef = useRef(null)
   const mapInstance = useRef(null)
-  const currentLayer = useRef(null)
+  const layersRef = useRef({})
 
   useEffect(() => {
     if (!mapInstance.current) {
@@ -53,9 +53,10 @@ export default function MapPage() {
     if (!p) return
     setSearchParams({ kml: p })
 
-    if (currentLayer.current) {
-      mapInstance.current.removeLayer(currentLayer.current)
-      currentLayer.current = null
+    // Remove previous layer for the same path, keep others
+    if (layersRef.current[p]) {
+      mapInstance.current.removeLayer(layersRef.current[p])
+      delete layersRef.current[p]
     }
 
     const url = API_BASE + '/' + p
@@ -93,12 +94,23 @@ export default function MapPage() {
               const style = styles[styleId]
               if (style) {
                 if (style.iconHref && l.setIcon) {
-                  l.setIcon(L.icon({
-                    iconUrl: style.iconHref,
-                    iconSize: [24, 24],
-                    iconAnchor: [12, 12],
-                    popupAnchor: [0, -12],
-                  }))
+                  if (style.iconColor) {
+                    const c = kmlColorToHex(style.iconColor)
+                    l.setIcon(L.divIcon({
+                      className: '',
+                      html: `<svg width="18" height="18" viewBox="0 0 18 18"><rect x="1" y="1" width="16" height="16" rx="4" fill="${c}" stroke="white" stroke-width="1.5"/><path d="M5.5 4.5h7a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 4 11V6a1.5 1.5 0 0 1 1.5-1.5zM6 8h6M6 10h6M6.5 12.5l-1 2M11.5 12.5l1 2" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/></svg>`,
+                      iconSize: [18, 18],
+                      iconAnchor: [9, 9],
+                      popupAnchor: [0, -9],
+                    }))
+                  } else {
+                    l.setIcon(L.icon({
+                      iconUrl: style.iconHref,
+                      iconSize: [24, 24],
+                      iconAnchor: [12, 12],
+                      popupAnchor: [0, -12],
+                    }))
+                  }
                 }
                 if (l.setStyle) {
                   const styleObj = {}
@@ -126,7 +138,7 @@ export default function MapPage() {
         applyStyles(layer)
         layer.addTo(mapInstance.current)
         mapInstance.current.fitBounds(layer.getBounds().pad(0.1))
-        currentLayer.current = layer
+        layersRef.current[p] = layer
       })
   }
 

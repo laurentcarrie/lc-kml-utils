@@ -14,7 +14,7 @@ use lc_kml_utils::processing::{process_choices_with_resolver, find_placemark_poi
 
 const S3_BUCKET: &str = "kml-laurent";
 const S3_REGION: &str = "eu-west-3";
-const S3_PREFIX: &str = "library/idf/";
+const S3_PREFIX: &str = "library/";
 const GRID_CELL_SIZE: f64 = 0.001; // ~100m
 
 struct AppState {

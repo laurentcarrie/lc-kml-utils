@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Métro 15 - Grand Paris Express (en construction)</name>
+    <description>Ligne circulaire - Grand Paris Express</description>
+    <Style id="line_style">
+      <LineStyle>
+        <color>ff3400A5</color>
+        <width>4</width>
+      </LineStyle>
+    </Style>
+    <Style id="stop_style">
+      <IconStyle>
+        <color>ff3400A5</color>
+        <scale>0.6</scale>
+        <Icon>
+          <href>https://maps.google.com/mapfiles/kml/shapes/rail.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Folder>
+      <name>Tracé</name>
+      <Placemark>
+        <name>15 Sud</name>
+        <styleUrl>#line_style</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>2.23083,48.82944,0 2.25994,48.8211,0 2.2734,48.8141,0 2.30161,48.81076,0 2.31736,48.8027,0 2.32823,48.7975,0 2.3494,48.793,0 2.367564,48.787175,0 2.387219,48.789922,0 2.40851,48.7824,0 2.43251,48.7894,0 2.449393,48.796534,0 2.47277,48.8069,0 2.50216,48.8161,0 2.52621,48.824,0 2.58,48.8429</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>15 Est</name>
+        <styleUrl>#line_style</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>2.52621,48.824,0 2.4948,48.8382,0 2.48967,48.8556,0 2.4817,48.8827,0 2.4803,48.8938,0 2.4697,48.9043,0 2.449222,48.906897,0 2.426364,48.915914,0 2.40361,48.91417,0 2.38065,48.9138,0 2.3634,48.918,0 2.34667,48.9176</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>15 Ouest</name>
+        <styleUrl>#line_style</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>2.34667,48.9176,0 2.313,48.92,0 2.28644,48.92318,0 2.272,48.915,0 2.267,48.9053,0 2.237883,48.891934,0 2.226189,48.898112,0 2.201581,48.887667,0 2.2021,48.8721,0 2.2171,48.8437,0 2.23083,48.82944</coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Stations</name>
+      <Placemark>
+        <name>Pont de Sèvres</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.23083,48.82944,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Issy</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.25994,48.8211,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Clamart</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.2734,48.8141,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Châtillon - Montrouge</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.30161,48.81076,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bagneux - Lucie Aubrac</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.31736,48.8027,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Arcueil - Cachan</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.32823,48.7975,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Villejuif - Gustave Roussy</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.3494,48.793,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Villejuif - Louis Aragon</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.367564,48.787175,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mairie de Vitry-sur-Seine</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.387219,48.789922,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Les Ardoines</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.40851,48.7824,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Le Vert de Maisons</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.43251,48.7894,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Créteil - L'Échat</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.449393,48.796534,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Saint-Maur - Créteil</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.47277,48.8069,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Champigny Centre</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.50216,48.8161,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Villiers - Champigny - Bry</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.52621,48.824,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Noisy - Champs</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.58,48.8429,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nogent - Le Perreux</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.4948,48.8382,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Val de Fontenay</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.48967,48.8556,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Rosny Bois-Perrier</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.4817,48.8827,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bondy</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.4803,48.8938,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pont de Bondy</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.4697,48.9043,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bobigny - Pablo Picasso</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.449222,48.906897,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Drancy - Bobigny</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.426364,48.915914,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fort d'Aubervilliers</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.40361,48.91417,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mairie d'Aubervilliers</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.38065,48.9138,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Stade de France</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.3634,48.918,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Saint-Denis Pleyel</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.34667,48.9176,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Les Grésillons</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.313,48.92,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Les Agnettes</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.28644,48.92318,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bois-Colombes</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.272,48.915,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bécon-les-Bruyères</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.267,48.9053,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>La Défense</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.237883,48.891934,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nanterre La Folie</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.226189,48.898112,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nanterre La Boule</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.201581,48.887667,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Rueil - Suresnes Mont-Valérien</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.2021,48.8721,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Saint-Cloud</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.2171,48.8437,0</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

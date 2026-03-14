@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Métro 3B - 3B</name>
+    <description>RATP</description>
+    <Style id="line_style">
+      <LineStyle>
+        <color>ffE8C46E</color>
+        <width>4</width>
+      </LineStyle>
+    </Style>
+    <Style id="stop_style">
+      <IconStyle>
+        <color>ffE8C46E</color>
+        <scale>0.6</scale>
+        <Icon>
+          <href>https://maps.google.com/mapfiles/kml/shapes/rail.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Folder>
+      <name>Tracé</name>
+      <Placemark>
+        <name>3B</name>
+        <styleUrl>#line_style</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>2.398054,48.864933,0 2.398203,48.864952,0 2.398362,48.865013,0 2.398705,48.865219,0 2.398918,48.865387,0 2.399507,48.866051,0 2.400435,48.867153,0 2.401062,48.867798,0 2.401315,48.868099,0 2.401315,48.868099,0 2.402774,48.869785,0 2.40431,48.871521,0 2.40431,48.871521,0 2.404581,48.872147,0 2.405777,48.875153,0 2.405904,48.875408,0 2.40598,48.87553,0 2.406072,48.87566,0 2.406529,48.876244,0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>3B</name>
+        <styleUrl>#line_style</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>2.40649,48.876255,0 2.406033,48.875671,0 2.40594,48.875542,0 2.405863,48.875416,0 2.405733,48.87516,0 2.404538,48.872154,0 2.404402,48.871723,0 2.40431,48.871521,0 2.40431,48.871521,0 2.402774,48.869785,0 2.401315,48.868099,0 2.401315,48.868099,0 2.401062,48.867798,0 2.400435,48.867153,0 2.399507,48.866051,0 2.398918,48.865387,0 2.398705,48.865219,0 2.398362,48.865013,0 2.398203,48.864952,0 2.398054,48.864933,0</coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Stations</name>
+      <Placemark>
+        <name>Saint-Fargeau</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.404361344448241,48.871887658077014,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Gambetta</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.398537305704572,48.865032564464,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Porte des Lilas</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.4070619733807948,48.87656859902798,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pelleport</name>
+        <styleUrl>#stop_style</styleUrl>
+        <Point>
+          <coordinates>2.4014967922879253,48.86846488701483,0</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

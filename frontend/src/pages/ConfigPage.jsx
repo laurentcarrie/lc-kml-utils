@@ -389,7 +389,7 @@ function ChoiceEditor({ choice, onChange, onRemove, visible, onToggleVisible, de
         </button>
         {data.color && <span className="tree-color-dot" style={{ background: kmlColorToHex(data.color) }} />}
         <span className="tree-label" onClick={() => setExpanded(!expanded)}>{choiceLabel(choice)}</span>
-        <span className="tree-type-hint">{type}</span>
+        <span className="tree-type-hint">{isFolder ? 'add item' : type}</span>
         {isFolder && <div className="tree-add-wrap" onClick={e => e.stopPropagation()}>
           <button className="tree-add-btn" onClick={e => {
             if (!addMenuOpen) {
@@ -531,7 +531,7 @@ function ChoiceList({ choices, onChange }) {
           }}
         />
       ))}
-      <div className="tree-add-folder" onClick={() => onChange([...choices, makeDefault('Folder')])}>+ Folder</div>
+      <div className="tree-add-folder" onClick={() => onChange([...choices, makeDefault('Folder')])}>+ add item</div>
     </div>
   )
 }
@@ -825,12 +825,23 @@ export default function ConfigPage() {
             const style = styles[styleId]
             if (style) {
               if (style.iconHref && l.setIcon) {
-                l.setIcon(L.icon({
-                  iconUrl: style.iconHref,
-                  iconSize: [24, 24],
-                  iconAnchor: [12, 12],
-                  popupAnchor: [0, -12],
-                }))
+                if (style.iconColor) {
+                  const c = kmlColorToHex(style.iconColor)
+                  l.setIcon(L.divIcon({
+                    className: '',
+                    html: `<svg width="18" height="18" viewBox="0 0 18 18"><rect x="1" y="1" width="16" height="16" rx="4" fill="${c}" stroke="white" stroke-width="1.5"/><path d="M5.5 4.5h7a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 4 11V6a1.5 1.5 0 0 1 1.5-1.5zM6 8h6M6 10h6M6.5 12.5l-1 2M11.5 12.5l1 2" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/></svg>`,
+                    iconSize: [18, 18],
+                    iconAnchor: [9, 9],
+                    popupAnchor: [0, -9],
+                  }))
+                } else {
+                  l.setIcon(L.icon({
+                    iconUrl: style.iconHref,
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 12],
+                    popupAnchor: [0, -12],
+                  }))
+                }
               }
               if (l.setStyle) {
                 const styleObj = {}
