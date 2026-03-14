@@ -35,7 +35,7 @@ test.describe('Choice tree management', () => {
   test('can add a Folder', async ({ page }) => {
     await page.click('.tree-add-folder')
     await expect(page.locator('.tree-item')).toHaveCount(1)
-    await expect(page.locator('.tree-type-hint')).toHaveText('Folder')
+    await expect(page.locator('.tree-type-hint')).toHaveText('add item')
   })
 
   test('can add multiple items via folder + button', async ({ page }) => {
@@ -87,7 +87,8 @@ test.describe('Add menu types', () => {
       await page.locator('.tree-toggle').click()
       await page.locator('.tree-add-btn').click()
       await page.locator('.tree-add-menu-item', { hasText: type }).click()
-      await expect(page.locator('.tree-type-hint').nth(1)).toHaveText(type)
+      const expected = type === 'Folder' ? 'add item' : type
+      await expect(page.locator('.tree-type-hint').nth(1)).toHaveText(expected)
     })
   }
 })
