@@ -1,6 +1,7 @@
 # lc-kml-utils
 
 KML processing and map visualization platform for Ile-de-France transportation and geographic data.
+Conveniently stores your configuration data in local json files
 
 ## What it does
 
@@ -8,6 +9,10 @@ KML processing and map visualization platform for Ile-de-France transportation a
 - Visualize transportation networks (RER, Metro, buses) on interactive maps
 - Perform geometric operations: concentric circles, polygon unions, route computation, triangle bisectors
 - Serve a React frontend with Leaflet-based map rendering
+
+## Demo
+
+A live instance is available at: https://39cty44qnv.eu-west-3.awsapprunner.com
 
 ## Architecture
 
@@ -56,10 +61,6 @@ S3_BUCKET=my-bucket cargo run --bin server
 # CLI usage
 S3_BUCKET=my-bucket cargo run -- input.yml output.kml
 ```
-
-## Demo
-
-A live instance is available at: https://39cty44qnv.eu-west-3.awsapprunner.com
 
 ## Deploy
 
