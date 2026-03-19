@@ -5,8 +5,8 @@ use std::io::BufWriter;
 
 use ::kml::types::KmlDocument;
 use ::kml::{Kml, KmlWriter};
-use lc_kml_utils::model::InputData;
-use lc_kml_utils::processing::process_choices;
+use lc_mcp_kml::model::InputData;
+use lc_mcp_kml::processing::process_choices;
 
 fn main() {
     let args: Vec<String> = env::args().collect();

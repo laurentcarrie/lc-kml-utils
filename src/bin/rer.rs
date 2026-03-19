@@ -5,11 +5,11 @@ use std::path::Path;
 
 use ::kml::types::KmlDocument;
 use ::kml::{Kml, KmlWriter};
-use lc_kml_utils::model::{
+use lc_mcp_kml::model::{
     EChoice, Folder, InputData, PointDefinition, RawKml, RerLine, Segments, TriangleBisect,
     UnionCircles,
 };
-use lc_kml_utils::processing::process_choices;
+use lc_mcp_kml::processing::process_choices;
 use regex::Regex;
 use serde::{Deserialize, Serialize};
 

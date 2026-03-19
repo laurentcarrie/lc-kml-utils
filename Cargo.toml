@@ -1,8 +1,8 @@
 [package]
-name = "lc-kml-utils"
+name = "lc-mcp-kml"
 version = "0.1.0"
 edition = "2024"
-default-run = "lc-kml-utils"
+default-run = "lc-mcp-kml"
 
 [dependencies]
 kml = "0.13.0"

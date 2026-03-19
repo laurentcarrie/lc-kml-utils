@@ -9,8 +9,8 @@ use tokio::sync::OnceCell;
 
 use ::kml::types::KmlDocument;
 use ::kml::{Kml, KmlReader, KmlWriter};
-use lc_kml_utils::model::{InputData, EChoice};
-use lc_kml_utils::processing::{process_choices_with_resolver, find_placemark_point};
+use lc_mcp_kml::model::{InputData, EChoice};
+use lc_mcp_kml::processing::{process_choices_with_resolver, find_placemark_point};
 
 const S3_BUCKET: &str = "kml-laurent";
 const S3_REGION: &str = "eu-west-3";

@@ -1,4 +1,4 @@
-use lc_kml_utils::model::*;
+use lc_mcp_kml::model::*;
 
 #[test]
 fn test_input_data() {
